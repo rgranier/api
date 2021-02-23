@@ -40,9 +40,9 @@ def home():
     LOG.info(f"My output: {mydata}")
     return html
 
-    @app.route('/', methods=['POST'])
+    @app.route('/foo', methods=['POST'])
     def my_post():
-        html = '''
+        html = '''foo
         '''
 
         mydata = 'This is a POST.'
