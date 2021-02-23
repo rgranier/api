@@ -6,6 +6,7 @@ app = Flask(__name__)
 LOG = create_logger(app)
 LOG.setLevel(logging.INFO)
 
+# Home
 @app.route('/', methods=['GET'])
 def home():
     html = '''
@@ -34,10 +35,19 @@ def home():
     </body>
     </html>
     '''
-    
+
     mydata = 'Some test log info.  Is this written to the log?'
     LOG.info(f"My output: {mydata}")
     return html
+
+    @app.route('/', methods=['POST'])
+    def my_post():
+        html = '''
+        '''
+
+        mydata = 'This is a POST.'
+        LOG.info(f"My output: {mydata}")
+        return html
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True) # specify port=80
