@@ -40,14 +40,14 @@ def home():
     LOG.info(f"My output: {mydata}")
     return html
 
-    @app.route('/foo/', methods=['POST'])
-    def my_post():
-        html = '''foo
-        '''
+@app.route('/api/v1/test', methods=['POST'])
+def test():
+    html = '''Test return data
+    '''
 
-        mydata = 'This is a POST.'
-        LOG.info(f"My output: {mydata}")
-        return html
+    mydata = 'POST request succeeded.'
+    LOG.info(f"My output: {mydata}")
+    return html
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True) # specify port=80
