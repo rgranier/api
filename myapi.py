@@ -43,9 +43,11 @@ def home():
 @app.route('/api/v1/test', methods=['GET','POST'])
 def get_alert():
 
-    if request.is_json():
-        mydata = request.get_json()
-        LOG.info(mydata)
+    myheaders = request.headers()
+    mydata = request.get_data()
+    LOG.info(myheaders)
+    LOG.info("\n")
+    LOG.info(mydata)
 
     msg = 'POST request succeeded.'
     LOG.info(f"My output: {msg}")
