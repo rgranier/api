@@ -43,9 +43,9 @@ def home():
 @app.route('/api/v1/test', methods=['GET','POST'])
 def get_alert():
 
-    myheaders = request.headers()
+    #myheaders = request.headers()
     mydata = request.get_data()
-    LOG.info(myheaders)
+    #LOG.info(myheaders)
     LOG.info("\n")
     LOG.info(mydata)
 
