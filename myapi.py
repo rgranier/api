@@ -44,18 +44,21 @@ def home():
 def get_alert():
 
     #myheaders = request.headers()
-    mydata = request.get_json()
+    request_data = request.get_json()
+    LOG.info(type(request_data))
+
+    result = json.dumps(request_data)
 
     with open("data.txt", "a") as file:
-        file.write(mydata)
+        file.write(request_data)
         file.write("\n\n")
     #LOG.info(myheaders)
     LOG.info("\n")
-    LOG.info(mydata)
+    LOG.info(result)
 
     msg = 'POST request succeeded.'
     LOG.info(f"My output: {msg}")
-    return mydata
+    return request_data
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True) # specify port=80
