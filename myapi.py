@@ -45,6 +45,10 @@ def get_alert():
 
     #myheaders = request.headers()
     mydata = request.get_data()
+
+    with open("data.txt", a) as file:
+        file.write(mydata)
+        file.write("\n\n")
     #LOG.info(myheaders)
     LOG.info("\n")
     LOG.info(mydata)
