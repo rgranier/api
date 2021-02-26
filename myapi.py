@@ -44,7 +44,7 @@ def home():
 def get_alert():
 
     #myheaders = request.headers()
-    mydata = request.get_data()
+    mydata = request.get_json()
 
     with open("data.txt", "a") as file:
         file.write(mydata)
