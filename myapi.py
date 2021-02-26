@@ -40,14 +40,16 @@ def home():
     LOG.info(f"My output: {mydata}")
     return html
 
-@app.route('/api/v1/test', methods=['POST'])
-def test():
-    html = '''Test return data
-    '''
+@app.route('/api/v1/test', methods=['GET','POST'])
+def get_alert():
 
-    mydata = 'POST request succeeded.'
-    LOG.info(f"My output: {mydata}")
-    return html
+    if request.is_json():
+        mydata = request.get_json()
+        LOG.info(mydata)
+
+    msg = 'POST request succeeded.'
+    LOG.info(f"My output: {msg}")
+    return mydata
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80, debug=True) # specify port=80
