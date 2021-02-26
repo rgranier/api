@@ -50,7 +50,7 @@ def get_alert():
     result = json.dumps(request_data)
 
     with open("data.txt", "a") as file:
-        file.write(request_data)
+        file.write(result)
         file.write("\n\n")
     #LOG.info(myheaders)
     LOG.info("\n")
